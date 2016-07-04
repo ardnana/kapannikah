@@ -1,6 +1,7 @@
-{
-    "title": "Kapan Nikah?",
-    "jawaban": [
+<?php
+
+$arr = array('title' => "Kapan Nikah?",
+    'answer' => array(
         "Besok, dateng ya.",
         "Lah kemarin resepsi gak dateng?",
         "Yuk!",
@@ -21,6 +22,13 @@
         "Nunggu kamu.",
         "Punya kenalan duda ganteng kaya raya?",
         "Kamu kapan putus sama yang sekarang?",
-        "Nunggu syahrini jadi anggota avenger."
-    ]
-}
+        "Nunggu syahrini jadi anggota avenger.",
+        "Bentar ya, tiba-tiba mules nih!"));
+
+/* Send as JSON */
+header("Content-Type: application/json", true);
+
+$length = count($arr["answer"]) - 1;
+//echo $arr["answer"][rand(0, $length)];
+echo json_encode($arr["answer"][rand(0, $length)]);
+?>
