@@ -12,28 +12,19 @@
         <meta property="og:image"         content="" />
         <link rel="stylesheet" href="css/app.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            .fb-share-button {
+                float: left !important;
+                vertical-align: top !important;
+            }
+            
+            #twitter-share iframe {
+                vertical-align: bottom !important;
+                margin-left: 5px;
+            }
+        </style>
     </head>
-    <body>
-        <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId: '144429712647002',
-                    xfbml: true,
-                    version: 'v2.6'
-                });
-            };
-
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
+    <body style="background: #8A8A8A; color: #fff">
         <div class="row">
             <div class="small-12 columns"><img zf-iconic="" icon="home" size="medium">
                 <h3>Kapan Nikah?<small>.in</small></h3>
@@ -42,15 +33,15 @@
 
         <div class="row">
             <div class="large-12 columns">
-                <div class="callout jawab" style="cursor: pointer">
-                    <h1><strong id="jawaban"></strong></h1>
+                <div class="jawab" style="cursor: pointer; margin: 25px 0 45px">
+                    <h1><strong id="answer"></strong></h1>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="large-12 columns">
-                <a href="#" class="alert button jawab">Ada yang nanya lagi!</a><br/>
+                <a href="#" class="warning button jawab"><strong>Ada yang nanya lagi!</strong></a>
             </div>
         </div>
 
@@ -60,6 +51,7 @@
                      data-href="http://kapannikah.in" 
                      data-layout="button">
                 </div>
+                <div id="twitter-share"></div>
             </div>
         </div>
 
@@ -69,13 +61,9 @@
         <script src="js/app.js"></script>
 
         <script>
-            jawaban = json.jawaban;
-
-            jawabanDefault = jawaban[Math.floor(Math.random() * jawaban.length)];
-
-            $('#jawaban').hide().html(jawabanDefault).fadeIn('slow');
+            refresh();
             $('.jawab').click(function() {
-                $('#jawaban').hide().html(nextWord).fadeIn('fast');
+                refresh();
             });
         </script>
         <script>
