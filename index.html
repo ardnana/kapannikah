@@ -6,10 +6,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kapan Nikah?</title>
         <link rel="stylesheet" href="css/app.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '144429712647002',
+                    xfbml: true,
+                    version: 'v2.6'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         <div class="row">
-            <div class="small-12 columns">
+            <div class="small-12 columns"><img zf-iconic="" icon="home" size="medium">
+                <h5><small>kapannikah.in<i class="material-icons">directions_run</i></small></h5>
                 <h1>Kapan Nikah?</h1>
             </div>
         </div>
@@ -28,6 +50,17 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="large-12 columns">
+                <div
+                    class="fb-like"
+                    data-share="true"
+                    data-width="450"
+                    data-show-faces="true">
+                </div>
+            </div>
+        </div>
+
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/what-input/what-input.js"></script>
         <script src="bower_components/foundation-sites/dist/foundation.js"></script>
@@ -38,9 +71,9 @@
 
             jawabanDefault = jawaban[Math.floor(Math.random() * jawaban.length)];
 
-            $('#jawaban').html(jawabanDefault);
+            $('#jawaban').hide().html(jawabanDefault).fadeIn('slow');
             $('#jawab').click(function() {
-                $('#jawaban').html(nextWord);
+                $('#jawaban').hide().html(nextWord).fadeIn('fast');
             });
         </script>
     </body>
