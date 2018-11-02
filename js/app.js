@@ -44,7 +44,7 @@ window.twttr = (function(d, s, id) {
 
 //ANSWER
 function refresh() {
-    $.ajax({type: "GET", dataType: "json", url: "https://auliawillmarry.me/kapannikah/getAnswer.php", processData: false, contentType: "application/json", data: "", beforeSend: function() {
+    $.ajax({type: "GET", dataType: "json", url: "/kapannikah/getAnswer.php", processData: false, contentType: "application/json", data: "", beforeSend: function() {
         }, complete: function() {
         }, success: function(e) {
             console.log(e);
